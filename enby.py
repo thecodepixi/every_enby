@@ -3,6 +3,8 @@ import os
 import requests
 import string
 import random
+import time 
+
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -25,6 +27,8 @@ def get_random_word():
   random_letter = random.choice(letters)
   letter_pattern = f'^{random_letter}' + '+\\w{3,10}'
 
+  # frequencymin determins commonality of the word
+  # make is around 8, so I went for fairly common words
   querystring = {"limit":"100","partofspeech":random_pos,"letterPattern":letter_pattern,"frequencymin":"7.5"}
 
   headers = {
@@ -42,6 +46,8 @@ def get_random_word():
 def make_sentence():
   enby = ["enby", "non-binary"]
   word = get_random_word()
+
+  # sentence order and term choice depends on word part of speech
   if word["pos"] == "adjective":
     return word["word"] + " " + enby[0]
   elif word["pos"] == "noun":
@@ -55,4 +61,9 @@ def tweet():
   status = api.update_status(sentence)
   print('tweeted ' + status.id_str + ": " + sentence)
 
-tweet()
+# tweet once an hour
+INTERVAL = 60 * 60 
+
+while True:
+  tweet()
+  time.sleep(INTERVAL)
