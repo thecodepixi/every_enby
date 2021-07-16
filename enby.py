@@ -58,8 +58,8 @@ def tweet():
   status = api.update_status(sentence)
   print('tweeted ' + status.id_str + ": " + sentence)
 
-# tweet once an hour
-INTERVAL = 60 * 60 
+# tweet every half hour
+INTERVAL = 60 * 30 
 
 while True:
   tweet()
