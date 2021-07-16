@@ -63,3 +63,5 @@ INTERVAL = 60 * 30
 while True:
   tweet()
   time.sleep(INTERVAL)
+
+# TO DO: set up heroku scheduler instead of using loop
