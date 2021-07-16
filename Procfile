@@ -1,1 +1,1 @@
-worker: python enby.py
+worker: python server.py
