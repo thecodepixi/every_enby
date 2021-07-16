@@ -26,7 +26,6 @@ def get_random_word():
   letter_pattern = f'^{random_letter}' + '+\\w{3,10}'
 
   querystring = {"limit":"100","partofspeech":random_pos,"letterPattern":letter_pattern,"frequencymin":"7.5"}
-  print(querystring)
 
   headers = {
       'x-rapidapi-key': os.environ["dictionary_api_key"],
@@ -49,3 +48,11 @@ def make_sentence():
     return enby[1] + " " + word["word"]
   else:
     return random.choice(enby) + " "  + word["word"]
+
+def tweet():
+  api = twitter_api()
+  sentence = make_sentence()
+  status = api.update_status(sentence)
+  print('tweeted ' + status.id_str + ": " + sentence)
+
+tweet()
