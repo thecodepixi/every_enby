@@ -44,12 +44,10 @@ def make_sentence():
   pos, word = get_random_word()
 
   # sentence order and term choice depends on word part of speech
-  if pos == "adjective":
+  if pos == "adjective" or pos == "adverb":
     return word + " " + enby[0]
-  elif pos == "noun" or pos == "adverb":
-    return enby[1] + " " + word
   else:
-    return random.choice(enby) + " "  + word
+    return random.choice(enby) + " " + word
 
 def tweet():
   api = twitter_api()
