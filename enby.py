@@ -47,7 +47,7 @@ def make_sentence():
   if pos == "adjective" or pos == "adverb":
     return word + " " + random.choice(enby)
   else:
-    return random.choice(enby) + " "  + word
+    return random.choice(enby) + " " + word
 
 def tweet():
   api = twitter_api()
