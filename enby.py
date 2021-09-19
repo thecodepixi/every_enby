@@ -5,8 +5,8 @@ import string
 import random
 import time 
 # used for development
-# from dotenv import load_dotenv
-# load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 
 def twitter_api():
   twitter_api_key = os.environ["twitter_api_key"]
@@ -43,11 +43,9 @@ def make_sentence():
   enby = ["enby", "non-binary"]
   pos, word = get_random_word()
 
-  # sentence order and term choice depends on word part of speech
-  if pos == "adjective":
-    return word + " " + enby[0]
-  elif pos == "noun" or pos == "adverb":
-    return enby[1] + " " + word
+  # sentence order depends on word part of speech
+  if pos == "adjective" or pos == "adverb":
+    return word + " " + random.choice(enby)
   else:
     return random.choice(enby) + " "  + word
 
@@ -57,8 +55,8 @@ def tweet():
   status = api.update_status(sentence)
   print('tweeted ' + status.id_str + ": " + sentence)
 
-# tweet every half hour
-INTERVAL = 60 * 30 
+# tweet every hour
+INTERVAL = 60 * 60
 
 while True:
   tweet()
