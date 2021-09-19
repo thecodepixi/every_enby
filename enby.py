@@ -5,8 +5,8 @@ import string
 import random
 import time 
 # used for development
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 def twitter_api():
   twitter_api_key = os.environ["twitter_api_key"]
@@ -47,7 +47,7 @@ def make_sentence():
   if pos == "adjective" or pos == "adverb":
     return word + " " + random.choice(enby)
   else:
-    return random.choice(enby) + " "  + word
+    return random.choice(enby) + " " + word
 
 def tweet():
   api = twitter_api()
