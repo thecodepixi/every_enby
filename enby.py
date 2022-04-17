@@ -39,5 +39,3 @@ def tweet():
   sentence = make_sentence()
   status = api.update_status(sentence)
   print('tweeted ' + status.id_str + ": " + sentence)
-
-tweet()
