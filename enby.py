@@ -40,11 +40,4 @@ def tweet():
   status = api.update_status(sentence)
   print('tweeted ' + status.id_str + ": " + sentence)
 
-# tweet every hour
-INTERVAL = 60 * 60
-
-while True:
-  tweet()
-  time.sleep(INTERVAL)
-
-# TO DO: set up heroku scheduler instead of using loop
+tweet()
