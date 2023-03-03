@@ -8,6 +8,9 @@ Tweets are sent out every 3 hours between 9AM and 9PM Eastern, using a Heroku sc
 
 This bot was heavily inspired by [everybisexual](https://twitter.com/everybisexual) and [every_lesbian](https://twitter.com/every_lesbian). 
 
+## Project Status: On Hiatus 
+`every_enby` is currently on hiatus. This project was originally deployed using free Heroku hosting, and I have yet to setup an alternative. 
+
 ## Contribution 
 
 I'm not currently looking for contributions to this project, but you're welcome to fork it and use it as inspiration for your own fun bot projects! 
